@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="user-info">
+        <div class="personal-information">
+          <h1 class="info-heading">Personal Information</h1>
+          <div class="form-group">
+            <label for="file">Image</label>
+            <div class="user-image-container">
+              <button id="selectFileBtn">Select Image</button>
+              <input id="selectFileInput" type="file" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" />
+          </div>
+          <div class="form-group">
+            <label for="professionTitle">Profession Title:</label>
+            <input type="text" id="professionTitle" />
+          </div>
+          <div class="form-group">
+            <label for="userEmail">Email:</label>
+            <input type="email" id="userEmail" />
+          </div>
+          <div class="form-group">
+            <label for="userPhone">Phone Number:</label>
+            <input type="tel" id="userPhone" />
+          </div>
+          <div class="form-group">
+            <label for="userWebsite">Website:</label>
+            <input type="text" id="userWebsite" />
+          </div>
+          <div class="form-group">
+            <label for="userLocation">Location:</label>
+            <input type="text" id="userLocation" />
+          </div>
+        </div>
+        <div class="education">
+          <h1 class="info-heading">Education</h1>
+          <div class="education-entries">
+            <div class="education-entry">
+              <div class="form-group">
+                <label for="educationDate">Date:</label>
+                <input type="text" id="educationDate" />
+              </div>
+              <div class="form-group">
+                <label for="educationDegree">Degree:</label>
+                <input type="text" id="educationDegree" />
+              </div>
+              <div class="form-group">
+                <label for="educationUniversityName">University Name:</label>
+                <input type="text" id="educationUniversityName" />
+              </div>
+            </div>
+          </div>
+          <button class="addBtn" id="addEducation">Add Education</button>
+        </div>
+        <div class="language">
+          <h1 class="info-heading">Languages</h1>
+          <div class="language-entries">
+            <div class="language-entry">
+              <div class="form-group">
+                <label for="languageName">Language:</label>
+                <input type="text" id="languageName" />
+              </div>
+              <div class="form-group">
+                <label for="languagePercentage">Percentage:</label>
+                <input type="number" id="languagePercentage" />
+              </div>
+            </div>
+          </div>
+          <button class="addBtn" onclick="addLanguage()">Add Language</button>
+        </div>
+        <div class="profile">
+          <h1 class="info-heading">Profile</h1>
+          <div class="form-group">
+            <textarea
+              name="profile"
+              id="profile"
+              placeholder="Add info about your self"
+            ></textarea>
+          </div>
+        </div>
+        <div class="experience">
+          <h1 class="info-heading">Experience</h1>
+          <div class="experience-entries">
+            <div class="experience-entry">
+              <div class="form-group">
+                <label for="jobTitle">Job Title</label>
+                <input type="text" id="jobTitle" />
+              </div>
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" />
+              </div>
+              <div class="form-group">
+                <label for="jobDates">Dates</label>
+                <input type="text" id="jobDates" />
+              </div>
+              <div class="form-group">
+                <label for="jobDescription">Description</label>
+                <textarea name="jobDescription" id="jobDescription"></textarea>
+              </div>
+            </div>
+          </div>
+          <button class="addBtn" id="addExperience">Add Job</button>
+        </div>
+        <div class="skills">
+          <h1 class="info-heading">Skills</h1>
+          <div class="skills-entries">
+            <div class="skills-entry">
+              <div class="form-group">
+                <label for="skillName">Skill</label>
+                <input type="text" id="skillName" />
+              </div>
+              <div class="form-group">
+                <label for="skillPercentage">Percentage</label>
+                <input type="number" id="skillPercentage" />
+              </div>
+            </div>
+          </div>
+          <button class="addBtn" id="addSkills">Add Skill</button>
+        </div>
+        <div class="interests">
+          <h1 class="info-heading">Interests</h1>
+          <div class="form-group">
+            <textarea
+              name="interests"
+              id="interests"
+              placeholder="separate interest by comma"
+              rows="5"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- !resume starts here -->
+      <div class="resume-preview" id="resume">
+        <div class="personal-info-preview">
+          <div class="user-personal-info-preview">
+            <img
+              src="images/example img.png"
+              alt=""
+              class="user-image-preview"
+            />
+            <h1 class="user-fullname-preview">Khalid Rahman Hanify</h1>
+            <h1 class="user-profession-preview">Web Developer</h1>
+            <hr />
+          </div>
+          <div class="user-contact-preview">
+            <h1 class="heading-preview">Contact</h1>
+            <ul class="contact-info-list">
+              <li>
+                <img src="images/phone.png" alt="" />
+                <p id="userPhonePreview">+93787654123</p>
+              </li>
+              <li>
+                <img src="images/email.png" alt="" />
+                <p id="userEmailPreview">someone@example.com</p>
+              </li>
+              <li>
+                <img src="images/globe.png" alt="" />
+                <p id="userWebPreview">yourwebsite.com</p>
+              </li>
+              <li>
+                <img src="images/locaition.png" alt="" />
+                <p id="userLocationPreview">Kabul, Afghanistan</p>
+              </li>
+            </ul>
+          </div>
+          <div class="user-education-preview">
+            <h1 class="heading-preview">Education</h1>
+            <div class="education-cards-preview">
+              <div class="education-card-preview">
+                <p class="education-year-preview">2020 - present</p>
+                <h1 class="education-title-preview">
+                  Bachelor in computer science
+                </h1>
+                <p class="university-name-preview">University Name</p>
+              </div>
+              <div class="education-card-preview">
+                <p class="education-year-preview">2020 - present</p>
+                <h1 class="education-title-preview">
+                  Bachelor in computer science
+                </h1>
+                <p class="university-name-preview">University Name</p>
+              </div>
+              <div class="education-card-preview">
+                <p class="education-year-preview">2020 - present</p>
+                <h1 class="education-title-preview">
+                  Bachelor in computer science
+                </h1>
+                <p class="university-name-preview">University Name</p>
+              </div>
+            </div>
+          </div>
+          <div class="user-languages-preview">
+            <h1 class="heading-preview">Languages</h1>
+            <div class="language-cards-preview">
+              <div class="language-card-preview">
+                <h1 class="language-title-preview">Pashto</h1>
+                <div class="language-progressbar-preview">
+                  <div class="bar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="detailed-info-preview">
+          <div class="profile">
+            <h1 class="detailed-heading">Profile</h1>
+            <p class="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut magni,
+              laudantium porro labore omnis incidunt temporibus harum tenetur
+              quae ducimusLorem ipsum dolor sit amet consectetur adipisicing
+              elit. Ut magni, laudantium. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Ut magni, laudantium porro labore omnis incidunt
+              temporibus harum tenetur quae ducimus.
+            </p>
+          </div>
+          <div class="experience">
+            <h1 class="detailed-heading">Experience</h1>
+            <div class="experience-cards">
+              <div class="experience-card">
+                <div class="experience-duration">
+                  <p class="experience-date">2021 - present</p>
+                  <p class="experience-company">company name</p>
+                </div>
+                <div class="experience-description">
+                  <h1 class="experience-title">Senior UX Designer</h1>
+                  <p class="experience-para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+                    magni, laudantium porro labore omnis incidunt temporibus
+                    harum tenetur quae ducimus.
+                  </p>
+                </div>
+              </div>
+              <div class="experience-card">
+                <div class="experience-duration">
+                  <p class="experience-date">2021 - present</p>
+                  <p class="experience-company">company name</p>
+                </div>
+                <div class="experience-description">
+                  <h1 class="experience-title">Senior UX Designer</h1>
+                  <p class="experience-para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+                    magni, laudantium porro labore omnis incidunt temporibus
+                    harum tenetur quae ducimus.
+                  </p>
+                </div>
+              </div>
+              <div class="experience-card">
+                <div class="experience-duration">
+                  <p class="experience-date">2021 - present</p>
+                  <p class="experience-company">company name</p>
+                </div>
+                <div class="experience-description">
+                  <h1 class="experience-title">Senior UX Designer</h1>
+                  <p class="experience-para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+                    magni, laudantium porro labore omnis incidunt temporibus
+                    harum tenetur quae ducimus.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pro-skills-detailed">
+            <h1 class="detailed-heading">Professional Skills</h1>
+            <div class="pro-skills-cards">
+              <div class="pro-skills-card">
+                <p class="pro-skills-card-title">css</p>
+                <div class="pro-skills-progressbar">
+                  <div class="bar"></div>
+                </div>
+              </div>
+              <div class="pro-skills-card">
+                <p class="pro-skills-card-title">javascript</p>
+                <div class="pro-skills-progressbar">
+                  <div class="bar"></div>
+                </div>
+              </div>
+              <div class="pro-skills-card">
+                <p class="pro-skills-card-title">bootstrap</p>
+                <div class="pro-skills-progressbar">
+                  <div class="bar"></div>
+                </div>
+              </div>
+              <div class="pro-skills-card">
+                <p class="pro-skills-card-title">figma</p>
+                <div class="pro-skills-progressbar">
+                  <div class="bar"></div>
+                </div>
+              </div>
+              <div class="pro-skills-card">
+                <p class="pro-skills-card-title">HTML</p>
+                <div class="pro-skills-progressbar">
+                  <div class="bar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="interests-detailed">
+            <h1 class="detailed-heading">Interests</h1>
+            <div class="interest-cards">
+              <div class="interest-card">Gaming</div>
+              <div class="interest-card">Gaming</div>
+              <div class="interest-card">Gaming</div>
+              <div class="interest-card">Gaming</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button onclick="generatePDF()" class="PrintBtn">Print as PDF</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
